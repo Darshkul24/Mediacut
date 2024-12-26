@@ -21,8 +21,9 @@ def header():
 header()
 
 def clear_screen():
-    for widget in application_screen.winfo_children():
+    for widget in app.winfo_children():
         widget.destroy()
+
 
 application_screen = tk.Frame(app, bg="black")
 application_screen.pack(expand=True)
@@ -110,6 +111,10 @@ spotify.grid(row=1, column=0, padx=50, pady=50)
 def main_screen():
     clear_screen()
     header()
+
+    global application_screen
+    application_screen = tk.Frame(app, bg="black")
+    application_screen.pack(expand=True)
 
     youtube = tk.Button(
         application_screen,
