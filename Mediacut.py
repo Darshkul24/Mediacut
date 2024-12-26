@@ -6,7 +6,7 @@ app.title("Mediacut")
 app.state('zoomed')
 app.configure(bg="black")
 
-def header(show_back_button=False, back_command=None, show_exit_button=True):
+def header(show_back_button=False, show_exit_button=True):
     header = tk.Frame(app, bg="darkblue")
     header.pack(fill="x", side="top", ipadx=0, ipady=15)
     if show_back_button:
