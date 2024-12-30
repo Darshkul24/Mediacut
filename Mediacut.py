@@ -6,6 +6,16 @@ app.title("Mediacut")
 app.state('zoomed')
 app.configure(bg="black")
 
+application_screen = tk.Frame(app, bg="black")
+application_screen.pack(expand=True)
+
+platforms = [
+        ("YouTube", youtube_downloader, 0, 0, "red"),
+        ("Facebook", facebook_downloader, 0, 1, "blue"),
+        ("Instagram", instagram_downloader, 0, 2, "purple"),
+        ("Spotify", spotify_downloader, 1, 0, "green")
+    ]
+
 def clear_screen():
     for widget in app.winfo_children():
         widget.destroy()
@@ -48,9 +58,6 @@ def header(show_back_button=False, show_exit_button=True):
 
 header()
 
-application_screen = tk.Frame(app, bg="black")
-application_screen.pack(expand=True)
-
 def download_button(platform, platform_downloader, row, column, bg):
     button = tk.Button(
     application_screen,
@@ -92,13 +99,6 @@ def spotify_downloader():
     header(show_back_button=True,show_exit_button=False)
     spotify_label = tk.Label(app, text="Spotify Downloader", font=("Arial", 24, "bold"), fg="white", bg="black")
     spotify_label.pack(pady=20)
-
-platforms = [
-        ("YouTube", youtube_downloader, 0, 0, "red"),
-        ("Facebook", facebook_downloader, 0, 1, "blue"),
-        ("Instagram", instagram_downloader, 0, 2, "purple"),
-        ("Spotify", spotify_downloader, 1, 0, "green")
-    ]
 
 application_screen.pack(expand=True)
 
